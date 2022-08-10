@@ -1,0 +1,11 @@
+services:
+  theme:
+    build:
+      dockerfile: Dockerfile
+      context: "."
+    container_name: my-theme
+    restart: unless-stopped
+    volumes:
+      - .:/theme
+    ports:
+      - "3000:3000"
