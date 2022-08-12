@@ -1,0 +1,45 @@
+services:
+  app:
+    build:
+      args:
+        user: sammy
+        uid: 1000
+      dockerfile: Dockerfile
+      context: "."
+    container_name: my-app
+    restart: unless-stopped
+    volumes:
+      - .:/var/www
+    depends_on:
+      - db
+  webserver:
+    image: nginx:alpine
+    container_name: my-webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 81:81
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    depends_on:
+      - app
+      - db
+  db:
+    image: mysql:8
+    container_name: my-db
+    restart: unless-stopped
+    ports:
+      - 3307:3306
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_USER: ${DB_USER}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+
+#Volumes
+volumes:
+  dbdata:
+    driver: local

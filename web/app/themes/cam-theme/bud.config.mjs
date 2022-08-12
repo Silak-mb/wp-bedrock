@@ -29,7 +29,7 @@ export default async (app) => {
     /**
      * Proxy origin (`WP_HOME`)
      */
-    .proxy("http://my-bedrock.test")
+    .proxy("http://localhost:81")
 
     /**
      * Development origin

@@ -2,7 +2,7 @@
 
 @section('content')
   @include('partials.page-header')
-
+  <h1 class="hello">Hello php</h1>
   @if (! have_posts())
     <x-alert type="warning">
       {!! __('Sorry, no results were found.', 'sage') !!}
