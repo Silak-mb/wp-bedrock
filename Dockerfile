@@ -12,6 +12,8 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
+    git \
+    zip \
     curl \
     nodejs
 

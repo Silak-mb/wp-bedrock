@@ -2,7 +2,7 @@
 
 @section('content')
   @include('partials.page-header')
-  <h1 class="text-red-600 text-2xl">Hello from red color</h1>
+  <h1 class="text-red-400">Hello from red color</h1>
   @if (! have_posts())
     <x-alert type="warning">
       {!! __('Sorry, no results were found.', 'sage') !!}
