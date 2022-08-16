@@ -1,7 +1,7 @@
 FROM php:8.1-fpm
 
 # Set working directory
-WORKDIR /var/www/web
+WORKDIR /var/www
 
 # Arguments defined in docker-compose.yml
 ARG user
