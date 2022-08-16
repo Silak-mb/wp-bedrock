@@ -39,5 +39,5 @@ export default async (app) => {
     /**
      * URI of the `public` directory
      */
-    .setPublicPath("/app/themes/sage/public/");
+    .setPublicPath("/app/themes/cam-theme/public/");
 };
